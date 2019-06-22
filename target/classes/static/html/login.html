@@ -13,15 +13,15 @@
     <div class="logo-img">
       <img src="../assets/images/logo2_03.png" alt="" />
     </div>
-    <form action="" class="am-form" data-am-validator>
+    <form action="/user" method="post" class="am-form" data-am-validator>
       <div class="am-form-group">
         <label for="doc-vld-name-2"><i class="am-icon-user"></i></label>
-        <input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少3个字符）" required/>
+        <input type="text" name="username" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少3个字符）" required/>
       </div>
 			
 			<div class="am-form-group">
         <label for="doc-vld-password-2"><i class="am-icon-lock"></i></label>
-        <input type="password" id="doc-vld-password-2" minlength="6" placeholder="输入密码（至少6个字符）" required/>
+        <input type="password" name="password" id="doc-vld-password-2" minlength="6" placeholder="输入密码（至少6个字符）" required/>
       </div>
 
       <div class="am-form-group">
