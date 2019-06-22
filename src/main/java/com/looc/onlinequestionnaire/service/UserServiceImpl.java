@@ -50,7 +50,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(User user) {
-        List<User> login = userRegisterDao.login(user.getUsername());
+        List<User> login = userRegisterDao.login(user.getUsername(),user.getPassword());
+        System.out.println(login.toArray());
         if (login==null){
             return false;
         }

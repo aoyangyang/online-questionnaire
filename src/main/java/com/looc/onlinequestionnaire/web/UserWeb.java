@@ -35,8 +35,8 @@ public class UserWeb {
         String format = dfs.format(new Date());
 
         user.setGroups(1);
-        user.setCreated_at(format);
-        user.setUpdated_at(format);
+        user.setCreatedAt(format);
+        user.setUpdatedAt(format);
 
         //持久化
         boolean flag = false;
@@ -69,8 +69,9 @@ public class UserWeb {
             System.out.println(e.getMessage());
         }
 
+        //此处跳转到管理添加问卷页面  需要修改
         if (flag){
-            return "redirect:/html/index.html";
+            return "redirect:/index.html";
         }
 
         return "redirect:/html/login.html";
