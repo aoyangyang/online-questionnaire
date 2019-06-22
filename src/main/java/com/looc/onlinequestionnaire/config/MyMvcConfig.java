@@ -23,10 +23,10 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new UserLoginInterceptor())
-                .addPathPatterns("/admin**");
+                .addPathPatterns("/users/**");
 
         registry.addInterceptor(new AdminLoginInterceptor())
-                .addPathPatterns("/users**");
+                .addPathPatterns("/admin/**");
 
     }
 

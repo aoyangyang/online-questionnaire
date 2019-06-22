@@ -21,8 +21,9 @@ public class UserLoginInterceptor implements HandlerInterceptor {
 
         //判断是否为用户
         if (user==null || !user.getGroups().equals(1)){
-            request.setAttribute("msg", "没有登录权限");
-            request.getRequestDispatcher("/index.html").forward(request, response);
+            request.getSession().setAttribute("msg", "没有登录权限，登录用户需要用户权限");
+            request.getSession().setAttribute("errorCode", "error");
+            request.getRequestDispatcher("/404").forward(request, response);
             return false;
         }
 

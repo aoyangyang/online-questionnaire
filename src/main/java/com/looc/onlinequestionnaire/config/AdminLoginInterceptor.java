@@ -21,8 +21,9 @@ public class AdminLoginInterceptor implements HandlerInterceptor {
 
         //判断是否为管理员
         if (user==null || !user.getGroups().equals(0)){
-            request.setAttribute("msg", "没有登录权限");
-            request.getRequestDispatcher("/index.html").forward(request, response);
+            request.getSession().setAttribute("msg", "没有登录权限,登录管理员页面需要管理员权限");
+            request.getSession().setAttribute("errorCode", "error");
+            request.getRequestDispatcher("/404").forward(request, response);
             return false;
         }
 
