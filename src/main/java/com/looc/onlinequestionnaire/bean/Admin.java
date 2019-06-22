@@ -3,7 +3,7 @@ package com.looc.onlinequestionnaire.bean;
 /**
  * @program online-questionnaire
  * @description:
- * @author: Shanice
+ * @author: Shanice  这个是一个测试
  * @create: 2019/06/19 21:43
  */
 public class Admin {
