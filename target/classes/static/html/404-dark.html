@@ -1,8 +1,3 @@
-<!--
-	作者：772008139@qq.com
-	时间：2019-06-21
-	描述：
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +8,9 @@
   <link rel="stylesheet" href="../assets/css/amazeui.css" />
   <link rel="stylesheet" href="../assets/css/common.min.css" />
   <link rel="stylesheet" href="../assets/css/other.min.css" />
+
 </head>
-<body class="register-container">
+<body class="error-container error-dark-box">
   <div class="layout">
     <!--===========layout-header================-->
     <div class="layout-header am-hide-sm-only">
@@ -22,18 +18,17 @@
       <div class="topbar">
         <div class="container">
           <div class="am-g">
-            <!--<div class="am-u-md-9">-->
               <div class="topbar-right am-text-right am-fr">
                 Follow us
-                <a href="/html/login.html">登录</a>
-                <a href="/html/register.html">注册</a>
+                <a href="./login.html">登录</a>
+                <a href="./register.html">注册</a>
               </div>
-            <!--</div>-->
+            </div>
           </div>
         </div>
       </div>
       <!--topbar end-->
-		</div>
+
       <div class="header-box" data-am-sticky>
         <!--header start-->
           <div class="container">
@@ -51,7 +46,7 @@
   											<div class="contact_mini">
   												<i style="color:#7c6aa6" class="contact-icon am-icon-phone"></i>
   												<strong>155 8260 5704</strong>
-  												<span>周一~周五, 8:00 - 18:00</span>
+  												<span>周一~周五, 8:00 - 20:00</span>
   											</div>
   										</div>
                       <div class="header_contacts--item">
@@ -108,10 +103,35 @@
                 <div class="am-offcanvas-bar">
                   <ul class="am-menu-nav am-avg-sm-1">
                     <li><a href="../index.html" class="" >首页</a></li>
+
                     <li class=""><a href="./contact.html" class="" >联系我们</a></li>
+                    <li class="am-parent">
+                      <a href="./news.html" class="nav-icon nav-icon-globe" >Language</a>
+                      <ul class="am-menu-sub am-collapse  ">
+                        <li>
+                          <a href="#" >English</a>
+                        </li>
+                        <li class="">
+                          <a href="#" >Chinese</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-share-contain">
+                      <div class="nav-share-links">
+                        <i class="am-icon-facebook"></i>
+                        <i class="am-icon-twitter"></i>
+                        <i class="am-icon-google-plus"></i>
+                        <i class="am-icon-pinterest"></i>
+                        <i class="am-icon-instagram"></i>
+                        <i class="am-icon-linkedin"></i>
+                        <i class="am-icon-youtube-play"></i>
+                        <i class="am-icon-rss"></i>
+                      </div>
+                    </li>
                     <li class=""><a href="./login.html" class="" >登录</a></li>
                     <li class=""><a href="./register.html" class="" >注册</a></li>
                   </ul>
+
                 </div>
               </div>
             </nav>
@@ -129,56 +149,20 @@
 
 
 
+
     <!--===========layout-container================-->
-    <div class="register-box">
-      <form action="" class="am-form" data-am-validator>
-        <fieldset>
-          <legend>注册用户<p class="register-info">账号可以使用手机或者邮箱注册，但是仔细核对后，填入正确信息。</p></legend>
-
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">账号</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="输入用户名（至少 3 个字符）" required/>
-              </div>
-            </div>
-          </div>
-
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-1" class="register-pwd">密码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="password" id="doc-vld-pwd-1" placeholder="6 位数字的密码" pattern="^\d{6}$" required/>
-              </div>
-            </div>
-          </div>
-
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-2">确认密码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
-              </div>
-            </div>
-          </div>
-
-          <div class="am-g">
-            <div class="am-u-md-10">
-              <button class="am-btn am-btn-secondary" type="submit">注册</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
+    <div class="layout-container">
+      <div class="error error-dark">
+        <div class="container">
+        <h2>404</h2>
+        <p>Page Not Found</p>
+        <p>对不起,没有找到您所需要的页面,可能是URL不确定,或者页面已被移除。</p>
+        <button type="button" class="am-btn am-btn-secondary" onclick="window.location.href='../index.html'">Home</button>
+        </div>
+      </div>
     </div>
-
   </div>
+
 
 
 
