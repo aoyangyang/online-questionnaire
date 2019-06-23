@@ -28,4 +28,13 @@ public interface UserService {
      * @return boolean
      **/
     boolean login(User user);
+
+    /**
+     * @Author chenpeng
+     * @Description //TODO 添加问卷
+     * @Date 11:14 
+     * @Param [datas]
+     * @return void
+     **/
+    void userAddQ(String datas,String title);
 }

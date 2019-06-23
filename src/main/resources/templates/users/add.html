@@ -39,7 +39,7 @@
         <div class="am-g" style="margin-top: 30px">
             <div class="am-u-sm-2">&nbsp;</div>
             <div class="am-u-sm-8">
-
+                <input type="text" id="my_title" style="margin-bottom: 20px" class="am-form-field am-round" placeholder="请输入问卷标题"/>
 
                 <div id="tm_1" class="am-panel am-panel-default" style="padding: 30px;">
                     <div class="am-form-group">
@@ -109,7 +109,21 @@
 
                 bufStr = bufStr+'^';
             }
-            console.log(bufStr)
+
+
+            $.ajax({
+                url: "/users/add",
+                data: {datas: bufStr,title:$("#my_title").val()},
+                type: "POST",
+                success: function(data) {
+                    if (data=='success'){
+                        window.location.href="/index.html"
+                    }else {
+                        alert("请重试，添加失败1")
+                    }
+                }
+            });
+
         }
 
 
