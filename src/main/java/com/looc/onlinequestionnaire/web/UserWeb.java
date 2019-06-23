@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
@@ -92,9 +93,42 @@ public class UserWeb {
     }
 
 
+    /**
+     * @Author chenpeng
+     * @Description //TODO 展示问卷添加页面
+     * @Date 10:47 
+     * @Param []
+     * @return java.lang.String
+     **/
     @GetMapping("/users/add")
     public String userIndex(){
         return "users/add";
+    }
+
+
+
+    /**
+     * @Author chenpeng
+     * @Description //TODO 添加问卷
+     * @Date 10:48 
+     * @Param [datas]
+     * @return java.lang.String
+     **/
+    @PostMapping("/users/add")
+    @ResponseBody
+    public String userAddQ(String datas,String title){
+
+        if (datas==null || title==null){
+            return "error";
+        }
+        try {
+            userServiceImpl.userAddQ(datas,title);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "error";
+        }
+        return "success";
     }
 
 }

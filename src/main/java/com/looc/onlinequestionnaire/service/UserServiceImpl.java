@@ -1,11 +1,15 @@
 package com.looc.onlinequestionnaire.service;
 
+import com.looc.onlinequestionnaire.bean.Questionnaires;
 import com.looc.onlinequestionnaire.bean.User;
+import com.looc.onlinequestionnaire.dao.QuestionnairesDao;
 import com.looc.onlinequestionnaire.dao.UserRegisterDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +26,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private HttpSession httpSession;
+
+    @Autowired
+    private QuestionnairesDao questionnairesDao;
+
     /**
      * @Author chenpeng
      * @Description //TODO 注册用户
@@ -67,5 +75,33 @@ public class UserServiceImpl implements UserService {
         login.get(0).setPassword("");
         httpSession.setAttribute("loginUser",login.get(0));
         return true;
+    }
+
+    /**
+     * @Author chenpeng
+     * @Description //TODO 添加问卷
+     * @Date 11:15 
+     * @Param [datas]
+     * @return void
+     **/
+    @Override
+    public void userAddQ(String datas,String title) {
+        User loginUser = (User) httpSession.getAttribute("loginUser");
+        Integer id = loginUser.getId();
+
+        SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = dfs.format(new Date());
+
+        Questionnaires questionnaires = new Questionnaires();
+        questionnaires.setActiveTime(3);
+        questionnaires.setCreatedAt(format);
+        questionnaires.setDeleteToken(0);
+        questionnaires.setProblems(datas);
+        questionnaires.setTitle(title);
+        questionnaires.setUpdateedAt(format);
+        questionnaires.setUsersId(id);
+
+        Questionnaires save = questionnairesDao.save(questionnaires);
+
     }
 }
