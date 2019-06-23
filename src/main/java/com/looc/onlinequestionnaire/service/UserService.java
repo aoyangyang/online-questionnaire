@@ -15,7 +15,7 @@ public interface UserService {
      * @Author chenpeng
      * @Description //TODO 写入数据库
      * @Date 1:22 
-     * @Param [users]
+     * @Param [use]
      * @return boolean
      **/
     boolean register(User user);
@@ -24,7 +24,7 @@ public interface UserService {
      * @Author chenpeng
      * @Description //TODO 登录
      * @Date 1:47
-     * @Param [users]
+     * @Param [use]
      * @return boolean
      **/
     boolean login(User user);

@@ -28,7 +28,7 @@ public class UserWeb {
      * @Author chenpeng
      * @Description //TODO 注册
      * @Date 1:45 
-     * @Param [users]
+     * @Param [use]
      * @return java.lang.String
      **/
     @PutMapping("/user")
@@ -59,7 +59,7 @@ public class UserWeb {
      * @Author chenpeng
      * @Description //TODO 登录
      * @Date 1:45 
-     * @Param [users]
+     * @Param [use]
      * @return java.lang.String
      **/
     @PostMapping("/user")
@@ -89,6 +89,12 @@ public class UserWeb {
     @GetMapping("/404")
     public String error(){
         return "404";
+    }
+
+
+    @GetMapping("/users/add")
+    public String userIndex(){
+        return "users/add";
     }
 
 }

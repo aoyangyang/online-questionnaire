@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
      * @Author chenpeng
      * @Description //TODO 注册用户
      * @Date 1:22 
-     * @Param [users]
+     * @Param [use]
      * @return boolean
      **/
     @Override
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
      * @Author chenpeng
      * @Description //TODO 登录
      * @Date 11:59
-     * @Param [user]
+     * @Param [use]
      * @return boolean
      **/
     @Override

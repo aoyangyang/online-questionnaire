@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/use/css/amazeui.min.css}">
+    <link rel="stylesheet" th:href="@{/use/css/app.css}">
+</head>
+<body>
+    <!--头部-->
+    <header data-am-widget="header"
+            class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <a href="#left-link" class="">
+                <i class="am-header-icon am-icon-hand-o-left"></i>
+            </a>
+        </div>
+
+        <h1 class="am-header-title">
+            <a href="#title-link" class="">
+                添加问卷
+            </a>
+        </h1>
+
+        <div class="am-header-right am-header-nav">
+            <a href="#right-link" class="">
+
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+    </header>
+
+
+    <!--主体-->
+    <form action="" method="post">
+        <div class="am-g" style="margin-top: 30px">
+            <div class="am-u-sm-2">&nbsp;</div>
+            <div class="am-u-sm-8">
+
+
+                <div id="tm_1" class="am-panel am-panel-default" style="padding: 30px;">
+                    <div class="am-form-group">
+                        <label class="am-radio-inline">
+                            <input type="radio" checked="true"  value="0" name="docInlineRadio1"> 单选
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" value="1" name="docInlineRadio1"> 多选
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" value="2" name="docInlineRadio1"> 用户输入
+                        </label>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">题目</label>
+                        <input type="text" class="am-form-field am-round" placeholder="请输入题目"/>
+                        <br/>
+                        <span id="xuanxiang1_1">
+                            <label for="doc-ds-ipt-1">
+                                选项
+                                <button type="button" onclick="add_xx(this)" value="1"  style="margin-left: 20px;" class="am-btn am-btn-primary am-btn-xs">
+                                    添加选项
+                                </button>
+                            </label>
+                            <input id="xx_1" type="text" style="width: 200px" class="am-form-field am-radius xx_1" placeholder="请输入选项" />
+                        </span>
+                    </div>
+                </div>
+                <button type="button" onclick="add_tm(this)" style="float: right" class="am-btn am-btn-default am-round">添加题目</button>
+
+                <button type="button" onclick="do_it(this);" style="margin-top: 150px;" class="am-btn am-btn-primary am-btn-block">提交</button>
+            </div>
+            <div class="am-u-sm-2">&nbsp;</div>
+        </div>
+    </form>
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="@{/use/js/jquery-3.4.1.min.js}" th:src="@{/use/js/jquery-3.4.1.min.js}"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="@{/use/js/amazeui.min.js}" th:src="@{/use/js/amazeui.min.js}"></script>
+
+
+    <script>
+        do_it = function (obj) {
+            var n = parseInt(nub_temp);
+
+            var bufStr = '';
+
+            for (i = 1; i <= n; i++) {
+
+                var temppp = "docInlineRadio"+i;
+
+                var temp = $("input[name='"+temppp+"']:checked").val();
+                bufStr = bufStr + temp +'`';
+                var temp2 = $("#tm_"+i+" > div:nth-child(2) > input").val();
+                bufStr = bufStr+temp2+'`';
+                var temp3 = $("#xuanxiang1_"+i).children("input");
+
+                for (j = 0; j < temp3.length; j++) {
+                    bufStr = bufStr+$(temp3[j]).val()+'|';
+                }
+
+                bufStr = bufStr+'^';
+            }
+            console.log(bufStr)
+        }
+
+
+        //点击选择题目类型事件
+        $("input[type='radio']").click(function(){
+            if ($(this).val()==2){
+                $("#xuanxiang1_1").hide();
+            }else{
+                $("#xuanxiang1_1").show();
+            }
+        });
+
+        //点击添加选项
+        var xxHtmlf = '<input id="xx_';
+        var xxHtmle = '" type="text" style="width: 200px" class="am-form-field am-radius" placeholder="请输入选项" />';
+        add_xx = function (obj) {
+            $("#xx_"+$(obj).val()).after(xxHtmlf+$(obj).val()+xxHtmle);
+        }
+
+        //点击添加题目
+        var nub_temp = 1;
+
+        var tm_html1 = '<div id="tm_';
+
+        var tm_html2=  '" class="am-panel am-panel-default" style="padding: 30px;">\n' +
+        '                    <div class="am-form-group">\n' +
+        '                        <label class="am-radio-inline">\n' +
+        '                            <input type="radio" checked="true"  value="0" name="docInlineRadio';
+        var tm_html21=    '"> 单选\n' +
+        '                        </label>\n' +
+        '                        <label class="am-radio-inline">\n' +
+        '                            <input type="radio" value="1" name="docInlineRadio';
+        var tm_html22= '"> 多选\n' +
+        '                        </label>\n' +
+        '                        <label class="am-radio-inline">\n' +
+        '                            <input type="radio" value="2" name="docInlineRadio';
+        var tm_html23=    '"> 用户输入\n' +
+        '                        </label>\n' +
+        '                    </div>\n' +
+        '                    <div class="am-form-group">\n' +
+        '                        <label for="doc-ds-ipt-1">题目</label>\n' +
+        '                        <input type="text" class="am-form-field am-round" placeholder="请输入题目"/>\n' +
+        '                        <br/>\n' +
+        '                        <span id="xuanxiang1_';
+
+        var tm_html3=   '">\n' +
+        '                            <label for="doc-ds-ipt-1">\n' +
+        '                                选项\n' +
+        '                                <button type="button" onclick="add_xx(this)" value="';
+
+        var tm_html4=   '"  style="margin-left: 20px;" class="am-btn am-btn-primary am-btn-xs">\n' +
+        '                                    添加选项\n' +
+        '                                </button>\n' +
+        '                            </label>\n' +
+        '                            <input id="xx_';
+
+        var tm_html5= '" type="text" style="width: 200px" class="am-form-field am-radius" placeholder="请输入选项" />\n' +
+        '                        </span>\n' +
+        '                    </div>\n' +
+        '                </div>';
+
+
+        //添加题目
+        add_tm = function (obj) {
+            var temp = nub_temp+1;
+            $("#tm_"+nub_temp).after(
+                    tm_html1+
+                    temp+tm_html2+
+                    temp+tm_html21+
+                    temp+tm_html22+
+                    temp+tm_html23+
+                    temp+tm_html3+
+                    temp+tm_html4+
+                    temp+tm_html5);
+            nub_temp = temp;
+
+            $("input[type='radio']").click(function(){
+                var tString = $(this).parent().parent().parent().attr('id');
+                var ttString = tString.substring(3);
+                if ($(this).val()==2){
+                    $("#xuanxiang1_"+ttString).hide();
+                }else{
+                    $("#xuanxiang1_"+ttString).show();
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>
