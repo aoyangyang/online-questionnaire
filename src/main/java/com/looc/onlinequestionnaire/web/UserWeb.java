@@ -4,9 +4,11 @@ import com.looc.onlinequestionnaire.bean.User;
 import com.looc.onlinequestionnaire.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +28,7 @@ public class UserWeb {
      * @Author chenpeng
      * @Description //TODO 注册
      * @Date 1:45 
-     * @Param [user]
+     * @Param [users]
      * @return java.lang.String
      **/
     @PutMapping("/user")
@@ -35,8 +37,8 @@ public class UserWeb {
         String format = dfs.format(new Date());
 
         user.setGroups(1);
-        user.setCreated_at(format);
-        user.setUpdated_at(format);
+        user.setCreatedAt(format);
+        user.setUpdatedAt(format);
 
         //持久化
         boolean flag = false;
@@ -57,7 +59,7 @@ public class UserWeb {
      * @Author chenpeng
      * @Description //TODO 登录
      * @Date 1:45 
-     * @Param [user]
+     * @Param [users]
      * @return java.lang.String
      **/
     @PostMapping("/user")
@@ -69,10 +71,24 @@ public class UserWeb {
             System.out.println(e.getMessage());
         }
 
+        //此处跳转到管理添加问卷页面  需要修改
         if (flag){
-            return "redirect:/html/index.html";
+            return "redirect:/index.html";
         }
 
         return "redirect:/html/login.html";
     }
+
+    /**
+     * @Author chenpeng
+     * @Description //TODO 调到错误页面
+     * @Date 13:08 
+     * @Param []
+     * @return java.lang.String
+     **/
+    @GetMapping("/404")
+    public String error(){
+        return "404";
+    }
+
 }

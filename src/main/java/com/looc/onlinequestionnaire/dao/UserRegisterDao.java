@@ -23,6 +23,6 @@ public interface UserRegisterDao extends JpaRepository<User,Integer>,JpaSpecific
      * @Param [username, password]
      * @return com.looc.onlinequestionnaire.bean.User
      **/
-
-    List<User> login(String username);
+    @Query(value = "select u.* from users u where u.username=?1 and u.password=?2",nativeQuery = true)
+    List<User> login(String username, String password);
 }

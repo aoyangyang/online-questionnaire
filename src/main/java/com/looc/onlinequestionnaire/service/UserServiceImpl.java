@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
      * @Author chenpeng
      * @Description //TODO 注册用户
      * @Date 1:22 
-     * @Param [user]
+     * @Param [users]
      * @return boolean
      **/
     @Override
@@ -48,9 +48,17 @@ public class UserServiceImpl implements UserService {
 
 
 
+    /**
+     * @Author chenpeng
+     * @Description //TODO 登录
+     * @Date 11:59
+     * @Param [user]
+     * @return boolean
+     **/
     @Override
     public boolean login(User user) {
-        List<User> login = userRegisterDao.login(user.getUsername());
+        List<User> login = userRegisterDao.login(user.getUsername(),user.getPassword());
+        System.out.println(login.toArray());
         if (login==null){
             return false;
         }

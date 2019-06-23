@@ -28,9 +28,9 @@ public class User {
     @Column
     private Integer groups;
     @Column
-    private String created_at;
+    private String createdAt;
     @Column
-    private String updated_at;
+    private String updatedAt;
 
     public Integer getId() {
         return id;
@@ -88,19 +88,19 @@ public class User {
         this.groups = groups;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
