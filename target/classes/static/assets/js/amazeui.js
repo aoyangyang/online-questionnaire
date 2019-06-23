@@ -1740,7 +1740,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var TOUCH_TARGET_EVENTS = 'touchstart touchmove touchend touchcancel';
 
 	/**
-	 * Multi-user touch events input
+	 * Multi-use touch events input
 	 * @constructor
 	 * @extends Input
 	 */
@@ -2991,7 +2991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    userDrag: 'none',
 
 	    /**
-	     * Overrides the highlight color shown when the user taps a link or a JavaScript
+	     * Overrides the highlight color shown when the use taps a link or a JavaScript
 	     * clickable element in iOS. This property obeys the alpha value, if specified.
 	     * @type {String}
 	     * @default 'rgba(0,0,0,0)'
@@ -3264,7 +3264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  /**
 	   * destroy the manager and unbinds all events
-	   * it doesn't unbind dom events, that is the user own responsibility
+	   * it doesn't unbind dom events, that is the use own responsibility
 	   */
 	  destroy: function() {
 	    this.element && toggleCssProps(this, false);
@@ -3480,7 +3480,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  startDelay: 1,				// display the message after that many seconds from page load
 	  lifespan: 15,				// life of the message in seconds
 	  displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)
-	  maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)
+	  maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the use (0: no limit)
 	  icon: true,					// add touch icon to the message
 	  message: '',				// the message can be customized
 	  validLocation: [],			// list of pages where the message will be shown (array of regexes)
@@ -3488,7 +3488,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  onShow: null,				// executed when the message is shown
 	  onRemove: null,				// executed when the message is removed
 	  onAdd: null,				// when the application is launched the first time from the homescreen (guesstimate)
-	  onPrivate: null,			// executed if user is in private mode
+	  onPrivate: null,			// executed if use is in private mode
 	  privateModeOverride: false,	// show the message even in private mode (very rude)
 	  detectHomescreen: false		// try to detect if the site has been added to the homescreen (false | true | 'hash' | 'queryString' | 'smartURL')
 	};
@@ -3524,7 +3524,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  lastDisplayTime: 0,			// last time we displayed the message
 	  returningVisitor: false,	// is this the first time you visit
 	  displayCount: 0,			// number of times the message has been shown
-	  optedout: false,			// has the user opted out
+	  optedout: false,			// has the use opted out
 	  added: false				// has been actually added to the homescreen
 	};
 
@@ -3550,7 +3550,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // class methods
 	  this.doLog = ath.doLog;
 
-	  // merge default options with user config
+	  // merge default options with use config
 	  this.options = _extend({}, ath.defaults);
 	  _extend(this.options, options);
 	  // override defaults that are dependent on each other
@@ -3585,7 +3585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.session = this.getItem(this.options.appID);
 	  this.session = this.session ? JSON.parse(this.session) : undefined;
 
-	  // user most likely came from a direct link containing our token, we don't need it and we remove it
+	  // use most likely came from a direct link containing our token, we don't need it and we remove it
 	  if (ath.hasToken && ( !ath.isCompatible || !this.session )) {
 	    ath.hasToken = false;
 	    _removeToken();
@@ -3632,7 +3632,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // critical errors:
 	  if (this.session.optedout) {
-	    this.doLog("Add to homescreen: not displaying callout because user opted out");
+	    this.doLog("Add to homescreen: not displaying callout because use opted out");
 	    return;
 	  }
 	  if (this.session.added) {
@@ -3666,7 +3666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (ath.hasToken) {
 	      _removeToken();		// we don't actually need the token anymore, we remove it to prevent redistribution
 
-	      // this is called the first time the user opens the app from the homescreen
+	      // this is called the first time the use opens the app from the homescreen
 	      if (!this.session.added) {
 	        this.session.added = true;
 	        this.updateSession();
@@ -14873,7 +14873,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 
 	  $element.on('submit.validator.amui', function(e) {
-	    // user custom submit handler
+	    // use custom submit handler
 	    if (typeof options.submit === 'function') {
 	      return options.submit.call(_this, e);
 	    }
