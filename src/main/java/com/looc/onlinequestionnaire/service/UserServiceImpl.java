@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author chenPeng
@@ -102,6 +103,11 @@ public class UserServiceImpl implements UserService {
         questionnaires.setUsersId(id);
 
         Questionnaires save = questionnairesDao.save(questionnaires);
+
+        Questionnaires qu = questionnairesDao.getQu(5);
+
+
+        System.out.println(qu);
 
     }
 }
